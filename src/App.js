@@ -9,11 +9,9 @@ function App() {
   return (
     <div>
       <Navbar />
-
-        <BodyCarousel />
-        <FilterBar />
-        <CarListings />
-
+      <BodyCarousel />
+      <FilterBar />
+      <CarListings />
     </div>
   );
 }
