@@ -14,6 +14,7 @@
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+<<<<<<< HEAD
   gap: 30px;
 }
 
@@ -24,3 +25,25 @@
   height: 300px; 
   border: 1px solid #fefefe;
 }
+=======
+}
+
+
+.car-listings-item {
+  border-radius: 5px;
+}
+.listings-heading{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  
+}
+.listings-heading hr{
+  width: 300px;
+  
+}
+.listings-heading h4{
+  margin: 0 30px;
+}
+
+>>>>>>> 643ada646554f6364c46d594569719556188de1a
