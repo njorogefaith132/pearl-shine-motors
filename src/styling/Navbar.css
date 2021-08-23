@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 .navbar{
     padding: 5px;
     background-color: aqua;
@@ -6,6 +7,9 @@
     display: flex;
     justify-content: space-between;
     
+}
+.navbar-container h1{
+    font-family: 'Pacifico' , sans-serif;
 }
 .cart-items {
     position: absolute;

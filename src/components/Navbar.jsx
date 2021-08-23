@@ -9,8 +9,8 @@ const Navbar = () => {
                 <div className="cart-btn">
                     <span className="nav-icon">
                         <i class="fas fa-cart-plus"></i>
-                    </span>
                     <div className="cart-items">0</div>
+                    </span>
                 </div>
 
             </div>

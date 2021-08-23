@@ -7,7 +7,7 @@ import CarListings from './components/CarListings';
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <Navbar />
       <div className="body-content">
         <BodyCarousel />
