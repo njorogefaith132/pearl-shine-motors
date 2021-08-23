@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
+.listings-container {
+  width: 100vw;
+}
+
+.car-listings {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.car-listings-container {
+  background-color: green;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.car-listings-item {
+  border-radius: 5px;
+}
