@@ -2,6 +2,10 @@
 .navbar{
     padding: 5px;
     background-color: aqua;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
 }
 .navbar-container{
     display: flex;
