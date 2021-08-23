@@ -8,10 +8,12 @@ import CarListings from './components/CarListings';
 function App() {
   return (
     <div>
-      <Navbar />
-      <BodyCarousel />
-      <FilterBar />
-      <CarListings />
+     
+        <Navbar />
+        <BodyCarousel />
+        <FilterBar />
+        <CarListings />
+
     </div>
   );
 }
