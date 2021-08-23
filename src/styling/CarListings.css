@@ -14,23 +14,29 @@
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-<<<<<<< HEAD
-  gap: 30px;
+  gap: 20px;
 }
+
 
 .car-listing-item {
-  border-radius: 10px;
-  background-color: red;
-  width: 100%;
-  height: 300px; 
-  border: 1px solid #fefefe;
-}
-=======
-}
-
-
-.car-listings-item {
   border-radius: 5px;
+  width: 100%;
+  height: 300px;
+  border: 1px solid lightgrey;
+}
+
+.car-listings-image {
+  position: relative;
+}
+
+.car-listings-image span {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.car-listings-image img {
+  width: 100%;
+  height: 220px;
 }
 .listings-heading{
   display: flex;
@@ -46,4 +52,3 @@
   margin: 0 30px;
 }
 
->>>>>>> 643ada646554f6364c46d594569719556188de1a
