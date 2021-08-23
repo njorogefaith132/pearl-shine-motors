@@ -7,10 +7,10 @@ const Navbar = () => {
             <div className="container navbar-container">
                 <h1>Pearl Shine Motors</h1>
                 <div className="cart-btn">
-                    <span className="nav-icon">
-                        <i class="fas fa-cart-plus"></i>
-                    <div className="cart-items">0</div>
-                    </span>
+                   
+                    <i class="fas fa-cart-plus cart"></i>
+                    <span class='badge badge-primary' id='cart-count'> 5 </span>
+                
                 </div>
 
             </div>
