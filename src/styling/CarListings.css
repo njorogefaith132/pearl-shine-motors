@@ -13,10 +13,24 @@
 .car-listings-container {
   background-color: green;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 
 .car-listings-item {
   border-radius: 5px;
 }
+.listings-heading{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  
+}
+.listings-heading hr{
+  width: 300px;
+  
+}
+.listings-heading h4{
+  margin: 0 30px;
+}
+
