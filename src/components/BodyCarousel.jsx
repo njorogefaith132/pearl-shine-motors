@@ -3,7 +3,7 @@ import React from 'react'
 function BodyCarousel() {
   return (
     <div>
-      <h1>Carousel here...</h1>
+      <h1>carousel here...</h1>
     </div>
   )
 }
