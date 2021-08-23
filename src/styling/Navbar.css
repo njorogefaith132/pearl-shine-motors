@@ -11,11 +11,16 @@
 .navbar-container h1{
     font-family: 'Pacifico' , sans-serif;
 }
-.cart-items {
-    position: absolute;
-    top: -8px;
-    right: -8px;
+#cart-count {
+    
+    margin-top: -5px;
+    background-color: blue;
     padding: 0 5px;
+    vertical-align: top;
+    margin-left: -11px; 
 
+  }
+  .cart{
+    font-size: 25px;
   }
   
