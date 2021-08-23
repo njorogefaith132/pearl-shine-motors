@@ -1,0 +1,17 @@
+.navbar{
+    padding: 5px;
+    background-color: aqua;
+}
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.cart-items {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 0 5px;
+
+  }
+  
