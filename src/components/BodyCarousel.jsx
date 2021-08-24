@@ -43,4 +43,4 @@ function BodyCarousel() {
   )
 }
 
-export default BodyCarousel
+export default BodyCarousel;

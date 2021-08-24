@@ -8,8 +8,8 @@ const Navbar = () => {
                 <h1>Pearl Shine Motors</h1>
                 <div className="cart-btn">
                    
-                    <i class="fas fa-cart-plus cart"></i>
-                    <span class='badge badge-primary' id='cart-count'> 5 </span>
+                    <i className="fas fa-cart-plus cart"></i>
+                    <span className='badge badge-primary' id='cart-count'> 5 </span>
                 
                 </div>
 
