@@ -1,9 +1,23 @@
-import React from "react";
-// import { Link } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { fetchingCarsRequest } from "../redux/actions/carsActions";
 import "../App.css";
 import "../styling/CarListings.css";
 
+
 function CarListings() {
+  const dispatch = useDispatch();
+  const {cars, loading, error} = useSelector(state => state)
+
+
+  useEffect(() => {
+
+    dispatch(fetchingCarsRequest());
+    console.log(cars)
+
+  }, [])
+
   return (
     <div className="listings-container">
       <div className="container">
@@ -79,392 +93,42 @@ function CarListings() {
           </div>
 
         <div className="car-listings-container">
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-            <button data-toggle="modal" data-target="#exampleModal">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              </button>
-
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
+          { loading ? (<h4>Loading...</h4>) :
+          error ? (<h4 style={{ color: 'red' }}>{error}...</h4>) :
+          cars && cars.map(car => (
+            <div key={car.id} className="car-listing-item">
+              <div className="car-listings-image">
+              <button data-toggle="modal" data-target="#exampleModal">
+                <img
+                  src={car.images[0]}
+                  alt={car.description}
+                />
+                </button>
               </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
+              <div className="car-listing-description">
+                <div className="car-listings-inner-description">
+                  <span>
+                    <strong>Make : </strong>{car.name}
+                  </span>
+                  <br />
+                  <span>
+                    <strong>Mileage : </strong>{car.mileage} km
+                  </span>
+                  <br />
+                  <span>
+                    <strong>Year : </strong>{car.year}
+                  </span>
+                  <br />
+                  <span>
+                    <strong>Price : </strong>Kshs {car.price}
+                  </span>
+                  <br />
+                </div>
+                <button className="btn btn-success btn-small">Buy</button>
               </div>
-              <button className="btn btn-success btn-small">Buy</button>
             </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className="car-listing-item">
-            <div className="car-listings-image">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="car in a desert"
-              />
-              <span>Subaru Forester 2014 model</span>
-            </div>
-            <div className="car-listing-description">
-              <div className="car-listings-inner-description">
-                <span>
-                  <strong>Make : </strong>Subaru Forester
-                </span>
-                <br />
-                <span>
-                  <strong>Mileage : </strong>102,578 km
-                </span>
-                <br />
-                <span>
-                  <strong>Year : </strong>2014
-                </span>
-                <br />
-                <span>
-                  <strong>Price : </strong>1,982,578 kshs
-                </span>
-                <br />
-              </div>
-              <button className="btn btn-success btn-small">Buy</button>
-            </div>
-          </div>
+            ))
+          }
         </div>
       </div>
     </div>
