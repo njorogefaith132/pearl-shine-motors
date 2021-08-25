@@ -5,7 +5,7 @@ import '../styling/BodyCarousel.css'
 
 function BodyCarousel() {
 
-  const {cars} = useSelector(state => state)
+  const {cars} = useSelector(state => state.cars)
   const images = [];
 
   cars.map(car => {

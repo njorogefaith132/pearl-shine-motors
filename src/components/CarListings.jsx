@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fetchingCarsRequest } from "../redux/actions/carsActions";
+import { fetchingCarsRequest, fetchingCarRequest } from "../redux/actions/carsActions";
 import "../App.css";
 import "../styling/CarListings.css";
+import DetailsModal from "../inner-components/DetailsModal";
 
 
 function CarListings() {
   const dispatch = useDispatch();
-  const {cars, loading, error} = useSelector(state => state)
+  const {cars, loading, error} = useSelector(state => state.cars)
+  const car = useSelector(state => state.car)
 
 
   useEffect(() => {
 
     dispatch(fetchingCarsRequest());
-    console.log(cars)
 
   }, [])
 
@@ -38,58 +39,7 @@ function CarListings() {
   
         
           >
-            <div className="modal-dialog modal-lg" role="document">
-              <div style={{ height: '100%'}} className="modal-content ">
-                <div className="modal-header">
-                  <h5 className="modal-title" >Car Details</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <div class="car-body">
-                     <div className="modal-image">
-                       <img
-                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                        alt="car in a desert"
-                        />
-                        {/* <span>Subaru Forester 2014 model</span> */}
-                     </div>
-                     <div className="car-details">
-                            <span>
-                          <strong>Make : </strong>Subaru Forester
-                        </span>
-                        <br />
-                        <span>
-                          <strong>Mileage : </strong>102,578 km
-                        </span>
-                        <br />
-                        <span>
-                          <strong>Year : </strong>2014
-                        </span>
-                        <br />
-                        <span>
-                          <strong>Price : </strong>1,982,578 kshs
-                        </span>
-                        <br />
-                        <span>
-                          <strong>Fuel : </strong>1,982,578 kshs
-                        </span>
-                        <br />
-                        <span>
-                          <strong>Transmission : </strong>1,982,578 kshs
-                        </span>
-                        <br /> <span>
-                          <strong>Engine Size : </strong>1,982,578 kshs
-                        </span>
-                        <br />
-
-                     <span><button className="btn btn-warning">Add to Cart</button></span>
-                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <DetailsModal car={car}/>
           </div>
 
         <div className="car-listings-container">
@@ -98,7 +48,7 @@ function CarListings() {
           cars && cars.map(car => (
             <div key={car.id} className="car-listing-item">
               <div className="car-listings-image">
-              <button data-toggle="modal" data-target="#exampleModal">
+              <button onClick={() => dispatch(fetchingCarRequest(car.id))} data-toggle="modal" data-target="#exampleModal">
                 <img
                   src={car.images[0]}
                   alt={car.description}
