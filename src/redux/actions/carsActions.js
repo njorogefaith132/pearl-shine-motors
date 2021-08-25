@@ -1,4 +1,4 @@
-import {FETCHING_CARS, FETCHING_CARS_SUCCESS,FETCHING_CARS_FAILED} from '../types/types'
+import {FETCHING_CARS, FETCHING_CARS_SUCCESS,FETCHING_CARS_FAILED, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART} from '../types/types'
 import {FETCHING_CAR, FETCHING_CAR_SUCCESS,FETCHING_CAR_FAILED} from '../types/types'
 
 
@@ -9,10 +9,10 @@ export const fetchingCars = () =>{
 } 
 
 export const fetchingCarsSuccess = (cars) =>{
-    return {
-        type: FETCHING_CARS_SUCCESS,
-        payload: cars
-    }
+	return {
+			type: FETCHING_CARS_SUCCESS,
+			payload: cars
+	}
 }
 
 export const fetchingCarsFailed = (error) =>{
@@ -44,5 +44,27 @@ export const fetchingCarRequest = (id) => async (dispatch) => {
 		dispatch({type: FETCHING_CAR_SUCCESS, payload: response});
 	} catch ({ message }) {
 		dispatch({type: FETCHING_CAR_FAILED, payload: message});
+	}
+}
+
+
+export const addToCart = (id) =>{
+	return {
+			type: ADD_TO_CART,
+			payload: id
+	}
+}
+
+export const incrementCart = (id) =>{
+	return {
+			type: INCREMENT_CART,
+			payload: id
+	}
+}
+
+export const decrementCart = (id) =>{
+	return {
+			type: DECREMENT_CART,
+			payload: id
 	}
 }

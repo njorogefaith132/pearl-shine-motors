@@ -19,7 +19,7 @@ function DetailsModal(props) {
           <div class="car-body">
               <div className="modal-image">
                 <img
-                src={images}
+                src={images?.length > 0 && images[0]}
                 alt={description}
                 />
                 {/* <span>Subaru Forester 2014 model</span> */}

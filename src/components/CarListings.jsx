@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fetchingCarsRequest, fetchingCarRequest } from "../redux/actions/carsActions";
+import { fetchingCarsRequest, fetchingCarRequest, addToCart } from "../redux/actions/carsActions";
 import "../App.css";
 import "../styling/CarListings.css";
 import DetailsModal from "../inner-components/DetailsModal";
@@ -9,10 +9,16 @@ import DetailsModal from "../inner-components/DetailsModal";
 
 function CarListings() {
   const dispatch = useDispatch();
-  const {cars, loading, error} = useSelector(state => state.cars)
+  const {cars: {cars, loading, error}} = useSelector(state => state)
+  const {cart} = useSelector(state => state)
   const car = useSelector(state => state.car)
 
-
+  const inCart = (id)=>{
+    const item = cart.find(c=>c.id===id);
+    if(item) return true
+    return false
+  }
+console.log({cart});
   useEffect(() => {
 
     dispatch(fetchingCarsRequest());
@@ -74,7 +80,17 @@ function CarListings() {
                   </span>
                   <br />
                 </div>
-                <button className="btn btn-success btn-small">Buy</button>
+                {
+                  inCart(car.id)?
+                  <button
+                  disabled
+                 className="btn btn-secondary btn-small">Added</button>
+                  :
+                  <button 
+                onClick={()=>dispatch(addToCart(car.id))}
+                 className="btn btn-success btn-small">Buy</button>
+                }
+                
               </div>
             </div>
             ))
