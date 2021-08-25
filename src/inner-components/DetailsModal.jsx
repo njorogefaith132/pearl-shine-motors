@@ -8,7 +8,7 @@ function DetailsModal(props) {
 
   return (
     <div className="modal-dialog modal-lg" role="document">
-      <div style={{ height: '100%'}} className="modal-content ">
+      <div style={{ height: '90%'}} className="modal-content ">
         <div className="modal-header">
           <h5 className="modal-title" >Car Details</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">

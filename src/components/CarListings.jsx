@@ -9,8 +9,8 @@ import DetailsModal from "../inner-components/DetailsModal";
 
 function CarListings() {
   const dispatch = useDispatch();
-  const {cars, loading, error} = useSelector(state => state.cars)
-  const car = useSelector(state => state.car)
+  const {cars, loading, error} = useSelector(state => state.carsReducer.cars)
+  const car = useSelector(state => state.carsReducer.car)
 
 
   useEffect(() => {

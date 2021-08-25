@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styling/Navbar.css'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -8,7 +9,7 @@ const Navbar = () => {
                 <h1>Pearl Shine Motors</h1>
                 <div className="cart-btn">
                    
-                    <i className="fas fa-cart-plus cart"></i>
+                    <Link to="/cart"><i className="fas fa-cart-plus cart"></i></Link>
                     <span className='badge badge-primary' id='cart-count'> 5 </span>
                 
                 </div>

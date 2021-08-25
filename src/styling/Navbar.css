@@ -16,6 +16,7 @@
 .navbar-container h1{
     font-family: 'Pacifico' , sans-serif;
 }
+
 #cart-count {
     
     margin-top: -5px;
@@ -27,5 +28,6 @@
   }
   .cart{
     font-size: 25px;
+    color: white;
   }
   

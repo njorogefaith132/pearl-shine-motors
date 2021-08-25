@@ -1,18 +1,19 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import BodyCarousel from './components/BodyCarousel';
-import FilterBar from './components/FilterBar';
-import CarListings from './components/CarListings';
+import Home from './components/Home';
+import Cart from './components/Cart'
+import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-    <div>
-     
+    <div> 
         <Navbar />
-        <BodyCarousel />
-        <FilterBar />
-        <CarListings />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/cart" component={Cart} />
+        </Switch>
+
 
     </div>
   );
