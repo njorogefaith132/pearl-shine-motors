@@ -32,10 +32,14 @@ const Cart = () => {
                     <div className="item-details">
                          
                             <h4 className="q">Quantity :</h4>
+                            
+                            <div className="quantity">
+
                             <i className="fas fa-minus-square q"></i>
                             <p className="item-amount q" >7</p>
                             <i className="fas fa-plus-square q"></i> <br />
        
+                            </div>
                             <h4 className="u">Unit Price :</h4>
                             <h4 className="s">subtotals :</h4>
                             <h4 className="d">Discount :</h4>
