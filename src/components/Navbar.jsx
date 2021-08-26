@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <div className = "navbar">
             <div className="container navbar-container">
-                <h1>Pearl Shine Motors</h1>
+                <Link to="/" ><h1>Pearl Shine Motors</h1></Link>
                 <div className="cart-btn">
                     <Link to="/cart"><i className="fas fa-cart-plus cart"></i></Link>
                     <span className='badge badge-primary' id='cart-count'>{getItems()} </span>

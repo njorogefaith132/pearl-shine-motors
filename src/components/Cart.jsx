@@ -44,7 +44,7 @@ const Cart = () => {
         getItems();
         calculatePrice();
         
-    }, [cart])
+    }, [cart , amount])
 
 
     return (
