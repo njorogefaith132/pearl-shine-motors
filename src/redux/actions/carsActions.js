@@ -27,7 +27,7 @@ export const fetchingCarsRequest = () => async (dispatch) => {
     dispatch(fetchingCars());
 
 	try {
-		const data = await fetch('https://my-json-server.typicode.com/marville001/json-server/vehicles');
+		const data = await fetch('https://my-json-server.typicode.com/njorogefaith132/db/cars');
 		const response = await data.json();
 		dispatch(fetchingCarsSuccess(response));
 	} catch ({ message }) {
@@ -39,7 +39,7 @@ export const fetchingCarRequest = (id) => async (dispatch) => {
     dispatch({ type: FETCHING_CAR });
 
 	try {
-		const data = await fetch(`https://my-json-server.typicode.com/marville001/json-server/vehicles/${id}`);
+		const data = await fetch(`https://my-json-server.typicode.com/njorogefaith132/db/cars/${id}`);
 		const response = await data.json();
 		dispatch({type: FETCHING_CAR_SUCCESS, payload: response});
 	} catch ({ message }) {
