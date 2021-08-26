@@ -4,13 +4,13 @@
 .check-out{
   margin-bottom: 10px;
   display: flex;
-  justify-content: flex-end;
-  margin-right: 50px;
+  justify-content: space-around;
 }
 
 .item-image img{
   width: 250px;
   height: 180px;
+  margin-bottom: 10px;
 }
 .cart-items{
   padding: 30px;
@@ -30,4 +30,16 @@ cursor: pointer;
 .q{
   display: inline;
   padding: 5px;
+}
+.quantity{
+  display: inline;
+}
+@media (max-width: 600px) {
+  .cart-items ,.check-out{
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  
 }

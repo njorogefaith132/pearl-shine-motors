@@ -16,6 +16,8 @@ const Cart = () => {
                 <div className="cart-item">
                     <div className="check-out">
 
+                        <h3>Total Price :</h3>
+
                         <button className="btn btn-warning check">Check out</button>
                     </div>
                     {cart.map(carrt => (
@@ -24,13 +26,13 @@ const Cart = () => {
                                 <img src={carrt.images[0]} alt="carImage" />
                             </div>
                             <div className="item-details">
-                        
+                                    <h4 className="quantity">Quantity :</h4>
                                     <i onClick={()=>dispatch(decrementCart(carrt.id))} className="fas fa-minus-square q"></i>
                                     <p className="item-amount q" >{carrt.quantity}</p>
                                     <i onClick={()=>dispatch(incrementCart(carrt.id))} className="fas fa-plus-square q"></i> <br />
             
-                                    <h4 className="u">Unit Price : {carrt.price}</h4>
-                                    <h4 className="s">subtotals : {carrt.quantity * carrt.price}</h4>
+                                    <h4 className="u">Unit Price : Ksh {carrt.price}</h4>
+                                    <h4 className="s">SubTotals : Ksh {carrt.quantity * carrt.price}</h4>
                             </div>
                         </div>
                     ))
